@@ -5,7 +5,6 @@ on:
     branches: ["master" ]
   pull_request:
     branches: ["master"]
-
 jobs:
   snyk:
     runs-on: ubuntu-latest
@@ -25,11 +24,11 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run Snyk Security Test
-      uses: snyk/actions/python@v1
+      uses: snyk/actions/python@v1.0.0
       with:
         snyk-token: ${{ secrets.SNYK_TOKEN }}
       env:
         SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       
     - name: Upload Snyk results to GitHub
-      uses: snyk/actions/upload-snyk-results@v1
+      uses: snyk/actions/upload-snyk-results@v1.0.0
